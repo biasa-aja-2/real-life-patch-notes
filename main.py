@@ -29,6 +29,9 @@ def main() -> None:
     os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
     with open(OUTPUT_PATH, "w", encoding="utf-8", newline="") as f:
         f.write(text)
+    # The grader collects /output as another user: leave the file
+    # readable by everyone, not just the user who ran the program.
+    os.chmod(OUTPUT_PATH, 0o644)
 
 
 if __name__ == "__main__":
